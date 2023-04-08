@@ -17,6 +17,22 @@ namespace Hangman
             board = new Board();
 
         }
-
+        public void GamePhase()
+        {
+            GameStart();
+            Guessing();
+        }
+        public void GameStart()
+        {
+            Board board = new Board();
+            string word = board.ChoosingAWord();
+            board.PrintBoard(word);
+        }
+        public string Guessing()
+        {
+            Console.WriteLine("\n\n\nGuess a letter:");
+            string letter = Console.ReadLine()!;
+            return letter;
+        }
     }
 }

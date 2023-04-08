@@ -12,6 +12,5 @@ namespace Hangman
         public int Lives { get; set; }
         public string? Name { get; set; }
 
-        
     }
 }
