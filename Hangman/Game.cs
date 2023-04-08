@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,12 +26,12 @@ namespace Hangman
             while (player.Lives > 0)
             {
                 string guessedLetter = Guessing();
+                Console.Clear();
                 board.GuessingWord = CheckLetterInGuessingWord(guessedLetter, board.ActualWord, board.GuessingWord);
                 Console.WriteLine(board.GuessingWord);
                 Lives(guessedLetter, board.ActualWord);
             }
-            
-            
+            Console.Clear();
         }
         public string Guessing()
         {
