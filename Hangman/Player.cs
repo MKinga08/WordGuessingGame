@@ -9,7 +9,7 @@ namespace Hangman
 {
     public class Player
     {
-        public int Lives { get; set; }
+        public int Lives { get; set; } = 8;
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -20,13 +21,14 @@ namespace Hangman
         public void GamePhase()
         {
             board.PrintBoard();
-            
-            while(true)
+            while (player.Lives > 0)
             {
                 string guessedLetter = Guessing();
                 board.GuessingWord = CheckLetterInGuessingWord(guessedLetter, board.ActualWord, board.GuessingWord);
                 Console.WriteLine(board.GuessingWord);
+                Lives(guessedLetter, board.ActualWord);
             }
+            
             
         }
         public string Guessing()
@@ -49,6 +51,26 @@ namespace Hangman
                 }
             }
             return string.Join("", guessingwordarr);
+        }
+
+        public int Lives(string guessedletter, string actualWord)
+        {
+            bool found = false;
+            foreach (char c in actualWord)
+            {
+                if (c.ToString() == guessedletter)
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                player.Lives--;
+            }
+            Console.WriteLine(player.Lives);
+            return player.Lives;
         }
     }
 }
