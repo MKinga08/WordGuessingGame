@@ -31,7 +31,7 @@ namespace Hangman
         }
         public string Guessing()
         {
-            Console.WriteLine("\n\n\nGuess a letter:");
+            Console.Write("\nGuess a letter: ");
             string letter = Console.ReadLine()!;
             return letter;
         }

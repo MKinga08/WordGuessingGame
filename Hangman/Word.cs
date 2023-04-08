@@ -22,7 +22,7 @@ namespace Hangman
             string[] lines = File.ReadAllLines("C:\\Users\\User\\Desktop\\C#_Projects\\Hangman_CSharp\\words.txt");
             string[] arr1 = lines;
             var randomWord = new Random().Next(arr1.Length);
-            Console.WriteLine(arr1[randomWord]);
+            //Console.WriteLine(arr1[randomWord]);
             return arr1[randomWord];
         }
         public void PrintBoard()
