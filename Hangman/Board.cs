@@ -8,23 +8,36 @@ namespace Hangman
 {
     public class Board
     {
-        public int Wordlength { get; set; }
-       
-        public string ChoosingAWord()
+        public string ActualWord { get; set; }
+        public string GuessingWord { get; set; }
+
+        public Board()
+        {
+            ActualWord = ChoosingAWord();
+            CreatingGuessingWord();
+        }
+
+        private string ChoosingAWord()
         {
             string[] lines = File.ReadAllLines("C:\\Users\\User\\Desktop\\C#_Projects\\Hangman_CSharp\\words.txt");
             string[] arr1 = lines;
             var randomWord = new Random().Next(arr1.Length);
+            Console.WriteLine(arr1[randomWord]);
             return arr1[randomWord];
         }
-        public void PrintBoard(string randomword)
+        public void PrintBoard()
         {
-            var underscore = randomword.Length;
-            for(int i = 0;i < underscore; i++)
-            {
-                Console.Write("_");
-            }
+            Console.WriteLine(GuessingWord);
         }
-
+        private void CreatingGuessingWord()
+        {
+            string word = string.Empty;
+            var underscore = ActualWord.Length;
+            for (int i = 0; i < underscore; i++)
+            {
+                word += "_";
+            }
+            GuessingWord = word;
+        }
     }
 }

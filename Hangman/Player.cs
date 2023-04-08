@@ -10,7 +10,6 @@ namespace Hangman
     public class Player
     {
         public int Lives { get; set; }
-        public string? Name { get; set; }
 
     }
 }

@@ -19,20 +19,32 @@ namespace Hangman
         }
         public void GamePhase()
         {
-            GameStart();
-            Guessing();
-        }
-        public void GameStart()
-        {
-            Board board = new Board();
-            string word = board.ChoosingAWord();
-            board.PrintBoard(word);
+            board.PrintBoard();
+
+            string guessedLetter = Guessing();
+            board.GuessingWord = CheckLetterInGuessingWord(guessedLetter, board.ActualWord, board.GuessingWord);
+            Console.WriteLine(board.GuessingWord);
         }
         public string Guessing()
         {
             Console.WriteLine("\n\n\nGuess a letter:");
             string letter = Console.ReadLine()!;
             return letter;
+        }
+        public string CheckLetterInGuessingWord(string guessedletter, string actualWord, string guessingWord)
+        {
+            var guessedlet = guessedletter[0];
+            char[] actualwordarr = actualWord.ToCharArray();
+            char[] guessingwordarr = guessingWord.ToCharArray();
+
+            for (int i = 0; i < actualWord.Length; i++)
+            {
+                if (actualwordarr[i] == guessedlet)
+                {
+                    guessingwordarr[i] = guessedlet;
+                }
+            }
+            return string.Join("", guessingwordarr);
         }
     }
 }
