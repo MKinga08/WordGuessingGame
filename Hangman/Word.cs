@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Hangman
 {
-    public class Board
+    public class Word
     {
         public string ActualWord { get; set; }
         public string GuessingWord { get; set; }
 
-        public Board()
+        public Word()
         {
             ActualWord = ChoosingAWord();
             CreatingGuessingWord();

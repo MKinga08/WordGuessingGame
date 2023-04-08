@@ -10,20 +10,24 @@ namespace Hangman
     public class Game : IGame
     {
         private Player player;
-        private Board board;
+        private Word board;
         public Game() 
         { 
             player = new Player();
-            board = new Board();
+            board = new Word();
 
         }
         public void GamePhase()
         {
             board.PrintBoard();
-
-            string guessedLetter = Guessing();
-            board.GuessingWord = CheckLetterInGuessingWord(guessedLetter, board.ActualWord, board.GuessingWord);
-            Console.WriteLine(board.GuessingWord);
+            
+            while(true)
+            {
+                string guessedLetter = Guessing();
+                board.GuessingWord = CheckLetterInGuessingWord(guessedLetter, board.ActualWord, board.GuessingWord);
+                Console.WriteLine(board.GuessingWord);
+            }
+            
         }
         public string Guessing()
         {
