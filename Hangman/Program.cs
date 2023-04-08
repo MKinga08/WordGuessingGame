@@ -2,9 +2,10 @@
 {
     class Program
     {
-        public void Main(string[] args)
+        public static void Main(string[] args)
         {
-
+            Board board = new Board();
+            board.ChoosingAWord();
         }
     }
 }
