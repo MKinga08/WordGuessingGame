@@ -5,7 +5,8 @@
         public static void Main(string[] args)
         {
             Board board = new Board();
-            board.ChoosingAWord();
+            string word = board.ChoosingAWord();
+            board.PrintBoard(word);
         }
     }
 }
