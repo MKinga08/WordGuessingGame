@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\C#_Projects\\Hangman_CSharp\\Hangman\\Hangman.csproj",
-      "projectName": "Hangman",
-      "projectPath": "C:\\Users\\User\\Desktop\\C#_Projects\\Hangman_CSharp\\Hangman\\Hangman.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\C#_Projects\\Hangman_CSharp\\Hangman\\WordGuessingGame.csproj",
+      "projectName": "WordGuessingGame",
+      "projectPath": "C:\\Users\\User\\Desktop\\C#_Projects\\Hangman_CSharp\\Hangman\\WordGuessingGame.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\Desktop\\C#_Projects\\Hangman_CSharp\\Hangman\\obj\\",
       "projectStyle": "PackageReference",
