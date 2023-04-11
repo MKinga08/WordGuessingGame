@@ -39,6 +39,11 @@ namespace Hangman
         {
             Console.Write("\nGuess a letter: ");
             string letter = Console.ReadLine()!;
+            /*List<string> guessedletters = new List<string>
+            {
+                letter
+            };
+            Console.WriteLine("you guessed these letters: " + guessedletters);*/
             return letter;
         }
         public string CheckLetterInGuessingWord(string guessedletter, string actualWord, string guessingWord)
@@ -73,7 +78,14 @@ namespace Hangman
             {
                 player.Lives--;
             }
-            Console.WriteLine($"You have {player.Lives} left");
+            if (player.Lives > 1)
+            {
+                Console.WriteLine($"You have {player.Lives} lives left");
+            }
+            else
+            {
+                Console.WriteLine("You have 1 life left");
+            }
             return player.Lives;
         }
         public void GameEnd(string word, string guessingWord)
