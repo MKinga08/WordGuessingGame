@@ -13,25 +13,27 @@ namespace Hangman
     public class Game : IGame
     {
         private Player player;
-        private Word board;
+        private Word word;
         public Game() 
         { 
             player = new Player();
-            board = new Word();
+            word = new Word();
 
         }
         public void GamePhase()
         {
-            board.PrintBoard();
+            word.PrintBoard();
             while (player.Lives > 0)
             {
                 string guessedLetter = Guessing();
                 Console.Clear();
-                board.GuessingWord = CheckLetterInGuessingWord(guessedLetter, board.ActualWord, board.GuessingWord);
-                Console.WriteLine(board.GuessingWord);
-                Lives(guessedLetter, board.ActualWord);
+                word.GuessingWord = CheckLetterInGuessingWord(guessedLetter, word.ActualWord, word.GuessingWord);
+                Console.WriteLine(word.GuessingWord);
+                Lives(guessedLetter, word.ActualWord);
+                GameEnd(word.ActualWord, word.GuessingWord);
             }
-            Console.Clear();
+            
+
         }
         public string Guessing()
         {
@@ -71,8 +73,20 @@ namespace Hangman
             {
                 player.Lives--;
             }
-            Console.WriteLine(player.Lives);
+            Console.WriteLine($"You have {player.Lives} left");
             return player.Lives;
+        }
+        public void GameEnd(string word, string guessingWord)
+        {
+            if(player.Lives == 0)
+            {
+                Console.WriteLine($"You have lost the game! The word was {word}");
+            }
+            if(guessingWord == word)
+            {
+                Console.WriteLine("Congrats! You won the game!");
+                Environment.Exit(0);
+            }
         }
     }
 }
